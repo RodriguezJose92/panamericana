@@ -321,5 +321,6 @@ class MudiExperience{
 const mudiExperience = new MudiExperience();
 
 setTimeout(()=>{
+    console.log('mudi implementado')
     mudiExperience.experienceOn( document.body.querySelector('.vtex-product-identifier-0-x-product-identifier__value').innerHTML, document.body.querySelector('.vtex-store-components-3-x-carouselGaleryCursor').parentNode.parentNode )
-},3000)
+},6000)
