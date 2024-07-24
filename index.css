@@ -8,13 +8,13 @@
     position: absolute;
     width: max-content;
     height: max-content;
-    right: 0%;
-    top: 0%;
+   right: 77%;
+    top: 6%;
     z-index: 10;
 }
 
 .btnMudi3D {
-    width: 80px;
+    width: 70px;
     height: 80px;
     position: relative;
     cursor: pointer;
