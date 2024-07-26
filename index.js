@@ -320,7 +320,24 @@ class MudiExperience{
   
 const mudiExperience = new MudiExperience();
 
-setTimeout(()=>{
-    console.log('mudi implementado')
-    mudiExperience.experienceOn( document.body.querySelector('.vtex-product-identifier-0-x-product-identifier__value').innerHTML, document.body.querySelector('.vtex-store-components-3-x-carouselGaleryCursor').parentNode.parentNode )
-},6000)
+/** Verificación de SKU number desde el Domn y el contendor del botón 3D */
+function verifyDomElements(){
+
+    /** Declaro mis variables del DOM  */
+    let sku , fatherContainer ;
+
+    if( navigator.userAgent.includes('iPhone') ||   navigator.userAgent.includes('iPad')){ // <-- Esto es para iPhone
+        sku = document.body.querySelector('.vtex-product-identifier-0-x-product-identifier__value').innerHTML
+        fatherContainer = document.body.querySelector('.vtex-store-components-3-x-carouselGaleryCursor').parentNode.parentNode;
+    }else { // Para android y Desk
+        sku =  document.body.querySelector('.vtex-product-identifier-0-x-product-identifier__value').innerHTML
+        fatherContainer = document.body.querySelector('.vtex-store-components-3-x-carouselGaleryCursor').parentNode.parentNode;
+    }
+
+    sku && fatherContainer ? mudiExperience.experienceOn(  sku , fatherContainer) : requestAnimationFrame(verifyDomElements)
+};
+
+verifyDomElements();
+
+
+
