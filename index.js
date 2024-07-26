@@ -330,8 +330,8 @@ function verifyDomElements(){
         sku = document.body.querySelector('.vtex-product-identifier-0-x-product-identifier__value').innerHTML
         fatherContainer = document.body.querySelector('.vtex-store-components-3-x-carouselGaleryCursor').parentNode.parentNode;
     }else { // Para android y Desk
-        sku =  document.body.querySelector('.vtex-product-identifier-0-x-product-identifier__value').innerHTML
-        fatherContainer = document.body.querySelector('.vtex-store-components-3-x-carouselGaleryCursor').parentNode.parentNode;
+        sku =  document.body.querySelector('.vtex-product-identifier-0-x-product-identifier__value').innerHTML ?? false;
+        fatherContainer = document.body.querySelector('.vtex-store-components-3-x-carouselGaleryCursor').parentNode.parentNode ?? false ;
     }
 
     sku && fatherContainer ? mudiExperience.experienceOn(  sku , fatherContainer) : requestAnimationFrame(verifyDomElements)
