@@ -320,17 +320,22 @@ class MudiExperience {
 };
 
 const mudiExperience = new MudiExperience();
+let counter = 0
 
 /** Verificación de SKU number desde el Domn y el contendor del botón 3D */
 function verifyDomElements() {
 
-console.log('ejecutando MUDI ... ')
-
     sku = document.body.querySelector('.vtex-product-identifier-0-x-product-identifier__value');
+
+    if (!sku) {
+        const path = location.pathname.split('/')[1].split('-')
+        sku = path[path.length - 1]
+    }
+
     fatherContainer = document.body.querySelector('.vtex-store-components-3-x-carouselGaleryCursor');
     sku && fatherContainer
         ? mudiExperience.experienceOn(sku.innerHTML, fatherContainer.parentNode.parentNode)
-        : requestAnimationFrame(verifyDomElements);
+        : counter < 500 ? requestAnimationFrame(verifyDomElements) : console.warn('No se logró ejecutar Mudi en Panamericana')
 
 };
 
