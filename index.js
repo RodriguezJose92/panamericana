@@ -330,11 +330,13 @@ function verifyDomElements() {
     if (!sku) {
         const path = location.pathname.split('/')[1].split('-')
         sku = path[path.length - 1]
+    }else{
+        sku = sku.innerHTML
     }
 
     fatherContainer = document.body.querySelector('.vtex-store-components-3-x-carouselGaleryCursor');
     sku && fatherContainer
-        ? mudiExperience.experienceOn(sku.innerHTML, fatherContainer.parentNode.parentNode)
+        ? mudiExperience.experienceOn(sku, fatherContainer.parentNode.parentNode)
         : counter < 500 ? requestAnimationFrame(verifyDomElements) : console.warn('No se logró ejecutar Mudi en Panamericana')
 
 };
